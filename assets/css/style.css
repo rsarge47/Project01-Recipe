@@ -1,0 +1,92 @@
+.menubar
+{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    clear: both;
+}
+.page-top
+{
+    width: 100%;
+    margin: 0;
+}
+#home
+{
+    float:left;
+    width: 320px;
+    height: 130px;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 90px;
+    text-align: center;
+    text-decoration: none;
+    background-image: url("../../assets/images/newcook.png");
+}
+.navbar
+{
+    font-family: 'Audiowide', cursive;
+    float: right;
+    margin-top: 25px;
+}
+.navbar a
+{
+    display: inline-block;
+    padding-left: 15px;
+    margin-left: 15px;    
+    color: rgb(150, 33, 33);
+    font-size: 2em;
+    border-left: 3px solid rgb(150, 33, 33);
+}
+.navbar a:first-child
+{
+    border-left: none;
+}
+body {
+    background-image: url("../../assets/images/fandb.jpg");
+    font-family: 'Khand', sans-serif;
+}
+#diet {
+    padding-left: 20px;
+    padding-right: 30px;
+    width: 150px;
+    box-sizing: border-box;    
+    border: 1px solid #999;
+}
+#search-form{
+    background-color: rgb(134, 109, 85);
+    float: left;
+    width: 100%;
+    max-width: 350px;    
+    padding: 20px;
+    border: 1px solid black;
+    max-width: 270px;   
+}
+#allergy {
+    text-align: right;
+}
+#recipeDisplay
+{
+    float: right;
+    width: 100%;
+    max-width: 635px;
+    padding: 30px;
+    margin: 0 0 40px;
+    background-color: rgb(134, 109, 85);
+    border: 1px solid #ddd;
+}
+main
+{    
+    padding-top: 30px;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    clear: both;
+}
+#history {
+    margin-top: 30px;
+    padding-top: 30px;
+    width: 100%;
+    max-width: 960px;
+    clear: both;
+    background-color: rgb(134, 109, 85);
+}
