@@ -41,6 +41,12 @@
                             <legend>Diet</legend>
                             <ul>
                                 <li>
+                                <label for="diet_0">
+                                    <input type="radio" id="balanced" name="diet" value="balanced" checked >
+                                    Balanced
+                                </label>
+                                </li>
+                                <li>
                                 <label for="diet_1">
                                     <input type="radio" id="vegetarian" name="diet" value="vegetarian" >
                                     Vegetarian
@@ -59,7 +65,7 @@
                                 </label>
                                 </li>
                                 <li>
-                                <label for="diet_3">
+                                <label for="diet_4">
                                     <input type="radio" id="pescatarian" name="diet" value="pescatarian">
                                     Pescatarian
                                 </label>
@@ -93,9 +99,28 @@
                     <button id="submit" type="submit">Search</button>
                 </form>
 
+                <!-- Search History from Firebase -->
+                <section id="history">
+                    <p>Total Searches: <span id="searchNum"></span></p>
+                    <p>Most Popular Search: <span id="topIng"></span></p>
+                    <h3>Latest Searches:</h3>
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                        <li>Fourth</li>
+                        <li>Fifth</li>
+                    </ul>
+                </section>
+                
+            </div>
+        </div>    
+
+        <div class="row">
+            <div class="col-lg-12">                
                 <!-- Search Results -->
                 <section id="recipeDisplay">
-                    <h1>Recipe Name</h1>
+                    <h1 class="name">Recipe Name</h1>
                     <img id="recipeImage" src="#" alt="RecipeImage">
                         
                     <p id="recipeLink">a link to the recipe</p>
@@ -105,24 +130,6 @@
                     <p>ingredients</p>
         
                     <p>nutritional info?</p>
-                </section>
-            </div>
-        </div>    
-
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Search History from Firebase -->
-                <section id="history">
-                    <p>Total Searches: <span id="searchNum"></span></p>
-                    <p>Most Popular Ingredient: <span id="topIng"></span></p>
-                    <h3>Latest Recipes:</h3>
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                        <li>Third</li>
-                        <li>Fourth</li>
-                        <li>Fifth</li>
-                    </ul>
                 </section>
             </div>
         </div>
