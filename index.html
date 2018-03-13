@@ -7,17 +7,134 @@
 
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Khand" rel="stylesheet">
 
     <title>Project01-Recipe</title>
 </head>
 <body>
+    <header class="page-top">
+        <div class="menubar">
+            <a href="index.html" id="home"></a>
+            
+            <nav class="navbar">
+                <!-- this is the navigation bar -->
+                <a href="#">About</a>
+                <a href="#">Sources</a>
+                <a href="#">Contact</a>                
+            </nav>
+        </div>
+    </header>
 
+    <main>        
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Search Input -->
+                <form id="search-form">
+                    <section>
+                        <h2>Find a Recipe</h2>
+                        <fieldset id="diet">
+                            <legend>Diet</legend>
+                            <ul>
+                                <li>
+                                <label for="diet_1">
+                                    <input type="radio" id="vegetarian" name="diet" value="vegetarian" >
+                                    Vegetarian
+                                </label>
+                                </li>
+                                <li>
+                                <label for="diet_2">
+                                    <input type="radio" id="vegan" name="diet" value="vegan">
+                                    Vegan
+                                </label>
+                                </li>
+                                <li>
+                                <label for="diet_3">
+                                    <input type="radio" id="paleo" name="diet" value="paleo">
+                                    Paleo
+                                </label>
+                                </li>
+                                <li>
+                                <label for="diet_3">
+                                    <input type="radio" id="pescatarian" name="diet" value="pescatarian">
+                                    Pescatarian
+                                </label>
+                                </li>
+                            </ul>
+                        </fieldset>
+                        
+                        <fieldset>
+                            <legend>Recipes Containing:</legend>                       
+                            Ingredient: <input type="text" id="ingredient1" name="ingredient"><br>
+                            Ingredient: <input type="text" id="ingredient2" name="ingredient"><br>
+                            Ingredient: <input type="text" id="ingredient3" name="ingredient">
+                        </fieldset>
+                        
+                        <fieldset id="allergy">
+                            <legend>Allergies</legend>
+                            <div>
+                                <input type="checkbox" id="peanut" name="peanut" value="peanut">
+                                <label for="peanut">Peanut-Free</label>
+                                <input type="checkbox" id="dairy" name="dairy" value="dairy">
+                                <label for="dairy">Dairy-Free</label><br>
+                                <input type="checkbox" id="soy" name="soy" value="soy">
+                                <label for="soy">Soy-Free</label>
+                                <input type="checkbox" id="shellfish" name="shellfish" value="shellfish">
+                                <label for="shellfish">ShellFish-Free</label><br>
+                                <input type="checkbox" id="gluten" name="gluten" value="gluten">
+                                <label for="gluten">Gluten-Free</label>                                
+                            </div>
+                        </fieldset>
+                    </section>
+                    <button id="submit" type="submit">Search</button>
+                </form>
+
+                <!-- Search Results -->
+                <section id="recipeDisplay">
+                    <h1>Recipe Name</h1>
+                    <img id="recipeImage" src="#" alt="RecipeImage">
+                        
+                    <p id="recipeLink">a link to the recipe</p>
+        
+                    <p>some other stuff</p>
+        
+                    <p>ingredients</p>
+        
+                    <p>nutritional info?</p>
+                </section>
+            </div>
+        </div>    
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Search History from Firebase -->
+                <section id="history">
+                    <p>Total Searches: <span id="searchNum"></span></p>
+                    <p>Most Popular Ingredient: <span id="topIng"></span></p>
+                    <h3>Latest Recipes:</h3>
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                        <li>Fourth</li>
+                        <li>Fifth</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        
+    </main>
     
+    
+    <footer>
+        <!-- Search Information from Firebase -->
+    </footer>
+
+
     <!-- Javascript -->
     <script src="assets/javascript/logic.js"></script>
 </body>
