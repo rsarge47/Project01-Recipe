@@ -78,19 +78,17 @@ $('#submit').on('click', function(event) {
     event.preventDefault();    
     displayRecipe();
     $('input[name="ingredient"]').val('');    
-})
-
-// Firebase is tracking amount of recipe searches
-firebase.database().ref().on('child_added', function(snap) {
-    $("#searchNum").text(snap.val().searchCount);
-    searchCounter = snap.val().searchCount;
-    }, function(errorObject) {
-    console.log("The read failed: " + errorObject.code);
 });
 
-// Firebase is displaying last 5 search terms
-firebase.database().ref().orderByChild("dateAdded").limitToLast(5).on('child_added', function(snap) {
+// Clear recipes button
+$('#clearRecipe').on('click', function(event) {
+    event.preventDefault();
+    $('#recipeDisplay').empty();
+})
 
+// Firebase is displaying last 5 search terms and tracking number of searches
+firebase.database().ref().limitToLast(5).on('child_added', function(snap) {
+    $("#searchNum").text(snap.val().searchCount);
     $(".searchTab").prepend("<tr><td> " +
         snap.val().diet + " </td><td> " +
         snap.val().ing1 + " </td><td> " +
