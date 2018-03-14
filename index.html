@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Khand" rel="stylesheet">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 
     <title>Project01-Recipe</title>
 </head>
@@ -47,12 +49,6 @@
                                     </label>
                                 </li>
                                 <li>
-                                    <label for="diet_1">
-                                    <input type="radio" id="high-fiber" name="diet" value="high-fiber">
-                                    High-Fiber
-                                    </label>
-                                </li>
-                                <li>
                                     <label for="diet_2">
                                     <input type="radio" id="high-protein" name="diet" value="high-protein">
                                     High-Protein
@@ -69,13 +65,7 @@
                                     <input type="radio" id="low-fat" name="diet" value="low-fat">
                                     Low-Fat
                                     </label>
-                                </li>
-                                <li>
-                                    <label for="diet_5">
-                                    <input type="radio" id="low-sodium" name="diet" value="low-sodium">
-                                    Low-Sodium
-                                    </label>
-                                </li>
+                                </li>                            
                             </ul>
                         </fieldset>
                         
@@ -99,42 +89,27 @@
                                         <input type="radio" id="peanut" name="health" value="peanut-free">                                        
                                     </li>
                                     <li>
-                                        <label for="dairy">Dairy-Free</label>
-                                        <input type="radio" id="dairy" name="health" value="dairy-free">
+                                        <label for="tree-nut">Tree-Nut-Free</label>
+                                        <input type="radio" id="tree-nut" name="health" value="tree-nut-free">                                        
                                     </li>
                                     <li>
-                                        <label for="soy">Soy-Free</label>
-                                        <input type="radio" id="soy" name="health" value="soy-free">                            
-                                    </li>
-                                    <li>
-                                        <label for="shellfish">ShellFish-Free</label>
-                                        <input type="radio" id="shellfish" name="health" value="shellfish-free">                                        
-                                    </li>
-                                    <li>
-                                        <label for="gluten">Gluten-Free</label>
-                                        <input type="radio" id="gluten" name="health" value="gluten-free">                                        
-                                    </li>
-                                    <li>
-                                        <label for="gluten">Vegetarian</label>
+                                        <label for="vegetarian">Vegetarian</label>
                                         <input type="radio" id="vegetarian" name="health" value="vegetarian">                                        
                                     </li>
                                     <li>
-                                        <label for="gluten">Vegan</label>
+                                        <label for="vegan">Vegan</label>
                                         <input type="radio" id="vegan" name="health" value="vegan">                                        
                                     </li>
                                     <li>
-                                        <label for="gluten">Pescatarian</label>
-                                        <input type="radio" id="pescatarian" name="health" value="pescatarian">                                        
-                                    </li>
-                                    <li>
-                                        <label for="gluten">Kosher</label>
-                                        <input type="radio" id="kosher" name="health" value="kosher">                                        
+                                        <label for="alcohol">Alcohol-Free</label>
+                                        <input type="radio" id="alcohol" name="health" value="alcohol-free">                                        
                                     </li>
                                 </ul>                                                                
                             </div>
                         </fieldset>
                     </section>
                     <button id="submit" type="submit">Search</button>
+                    <button id="clearRecipe" type="submit">Clear Recipes</button>
                 </form>
 
                 <!-- Search History from Firebase -->
@@ -142,13 +117,20 @@
                     <p>Total Searches: <span id="searchNum"></span></p>
                     <p>Most Popular Search: <span id="topIng"></span></p>
                     <h3>Latest Searches:</h3>
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                        <li>Third</li>
-                        <li>Fourth</li>
-                        <li>Fifth</li>
-                    </ul>
+                    <table class="searchTab"> 
+                        <thead>
+                            <tr>
+                                <th>Diet</th>
+                                <th>Ingredient</th>
+                                <th>Ingredient</th>
+                                <th>Ingredient</th>
+                                <th>Health</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                
                 </section>
                 
             </div>

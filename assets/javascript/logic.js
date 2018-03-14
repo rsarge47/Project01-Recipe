@@ -1,3 +1,17 @@
+// Firebase config and initialization
+var config = {
+    apiKey: "AIzaSyD1KKJPWXtJjBrQsi6oR6rgLVNw5ckKnOE",
+    authDomain: "recipeapi-c3e05.firebaseapp.com",
+    databaseURL: "https://recipeapi-c3e05.firebaseio.com",
+    projectId: "recipeapi-c3e05",
+    storageBucket: "recipeapi-c3e05.appspot.com",
+    messagingSenderId: "585051342056"
+    };
+firebase.initializeApp(config);
+
+var searchCounter = 0;
+
+// This takes form input and searches RecipeAPI, then displays recipes
 function displayRecipe(){
     var ingredient1 = $('#ingredient1').val().trim();
     var ingredient2 = $('#ingredient2').val().trim();
@@ -6,13 +20,13 @@ function displayRecipe(){
     console.log("ingredients: " + ingredients);
     var search = "q=" + ingredients;
    
-    var diet = document.querySelector('input[name="diet"]:checked').value;
-    console.log("Diet: " + diet);
-    diet = "&diet=" + diet;
+    var dietType = document.querySelector('input[name="diet"]:checked').value;
+    console.log("Diet: " + dietType);
+    diet = "&diet=" + dietType;
     
-    var health = document.querySelector('input[name="health"]:checked').value;
-    console.log("Health: " + health);
-    health = "&health=" + health;
+    var healthType = document.querySelector('input[name="health"]:checked').value;
+    console.log("Health: " + healthType);
+    health = "&health=" + healthType;
 
     var base = "https://api.edamam.com/search?";
     var appId = "&app_id=bcfc903e";
@@ -20,43 +34,68 @@ function displayRecipe(){
     
     var queryURL = base + search + appId + appKey + diet + health;    
     console.log("queryURL: " + queryURL);
+
+    // Pushing search criteria to firebase
+    searchCounter ++;    
+        
+    firebase.database().ref().push({
+        searchCount:searchCounter,
+        ing1:ingredient1,
+        ing2:ingredient2,
+        ing3:ingredient3,
+        diet:dietType,
+        health:healthType,
+        dateAdded:firebase.database.ServerValue.TIMESTAMP
+    });
     
     // Sends the queryURL to recipe API and returns JSON
     $.ajax({
         url: queryURL,
-        method: "GET"
-      }).then(function(response) {
+        method: "GET",
+        dataType: "jsonp"
+        }).then(function(response) {        
         var results = response.hits;
-
         var recipeDiv = $("<div class='displayRecipe'>");
 
         for (var i = 0; i < results.length; i++) {
-
-            var infoDiv = $("<div class='recipe'>");                        
+                        
             var recipeName = $("<h3 class='recipeName'>").text(results[i].recipe.label);            
-            var recipeImage = $("<img class='recipeImage'>");
+            var recipeImage = $("<img class='recipeImage'>").attr("src", results[i].recipe.image).attr("alt", results[i].recipe.label);
             var recipeIng = $("<p class='recipeIng'>").text(results[i].recipe.ingredientLines);
+            var recipeLink = $('<a class="recipeLink">').text(results[i].recipe.url).attr('href', results[i].recipe.url).attr("target", "_blank");
 
-            // This link isn't correctly added to infoDiv
-            var recipeLink = $("<a class='recipeLink'>").attr("href", results[i].recipe.url);
-            console.log("recipeLink: " + results[i].recipe.url);
-                      
-            recipeImage.attr("src", results[i].recipe.image);
-            recipeImage.attr("alt", results[i].recipe.label);           
-            infoDiv.append(recipeImage);
-            infoDiv.append(recipeName);
-            infoDiv.append(recipeIng);
-            infoDiv.append(recipeLink);
-            recipeDiv.append(infoDiv);            
+            var infoDiv = $("<div class='recipe'>").append(recipeImage, recipeName, recipeIng, recipeLink);
+            recipeDiv.append(infoDiv);
             
         };
         $("#recipeDisplay").prepend(recipeDiv);
 
-      });
+    });
 };
 
 // When you click submit button a search is performed in the recipe API
 $('#submit').on('click', function(event) {
-    event.preventDefault();
+    event.preventDefault();    
     displayRecipe();
+    $('input[name="ingredient"]').val('');    
+});
+
+// Clear recipes button
+$('#clearRecipe').on('click', function(event) {
+    event.preventDefault();
+    $('#recipeDisplay').empty();
 })
+
+// Firebase is displaying last 5 search terms and tracking number of searches
+firebase.database().ref().limitToLast(5).on('child_added', function(snap) {
+    $("#searchNum").text(snap.val().searchCount);
+    $(".searchTab").prepend("<tr><td> " +
+        snap.val().diet + " </td><td> " +
+        snap.val().ing1 + " </td><td> " +
+        snap.val().ing2 + " </td><td> " +
+        snap.val().ing3 + "</td><td> " +
+        snap.val().health + "</td></tr>");
+    }, function(errorObject) {
+    console.log("The read failed: " + errorObject.code);
+});
+

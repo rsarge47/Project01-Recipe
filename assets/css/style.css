@@ -67,6 +67,15 @@ body {
     background-color: rgb(134, 109, 85);
     border: 1px solid #ddd;
 }
+.searchTab th {
+    text-decoration: underline;
+    font-weight: bold; 
+}
+.searchTab th, .searchTab td {
+    font-size: 1em;
+    border: 1px dashed black;
+    padding: 20px;
+}
 main {    
     padding-top: 30px;
     width: 100%;
