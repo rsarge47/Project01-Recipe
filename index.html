@@ -1,4 +1,3 @@
-
 <!Doctype html>
 <html lang="en">
 
@@ -13,6 +12,10 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <!--Materialized Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Materialized Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Khand" rel="stylesheet">
@@ -33,15 +36,17 @@
             </nav>
         </div>
     </header>
-
+   
     <main>
         <div class="row">
             <div class="col-lg-12">
-                <!-- Search Input -->
+
                 <form id="search-form">
+                    <!-- Search Input -->
                     <section>
+                        <!--Find Recipes-->
                         <h2>Find a Recipe</h2>
-                        <fieldset id="diet">
+                        <fieldset id="diet" class="z-depth-5">
                             <legend>Diet</legend>
                             <ul>
                                 <li>
@@ -72,44 +77,13 @@
                                 <li>
                                     <label for="diet_5">
                                         <input type="radio" id="low-sodium" name="diet" value="low-sodium"> Low-Sodium
-                                    <input type="radio" id="balanced" name="diet" value="balanced" checked>
-                                    Balanced
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="diet_1">
-                                    <input type="radio" id="high-fiber" name="diet" value="high-fiber">
-                                    High-Fiber
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="diet_2">
-                                    <input type="radio" id="high-protein" name="diet" value="high-protein">
-                                    High-Protein
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="diet_3">
-                                    <input type="radio" id="low-carb" name="diet" value="low-carb">
-                                    Low-Carb
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="diet_4">
-                                    <input type="radio" id="low-fat" name="diet" value="low-fat">
-                                    Low-Fat
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="diet_5">
-                                    <input type="radio" id="low-sodium" name="diet" value="low-sodium">
-                                    Low-Sodium
                                     </label>
                                 </li>
                             </ul>
                         </fieldset>
-
-                        <fieldset>
+                        
+                        <fieldset class="z-depth-5">
+                            <!--Recipes Containing-->
                             <legend>Recipes Containing:</legend>
                             Ingredient:
                             <input type="text" id="ingredient1" name="ingredient">
@@ -118,18 +92,27 @@
                             <br> Ingredient:
                             <input type="text" id="ingredient3" name="ingredient">
                         </fieldset>
-
-                        <fieldset id="allergy">
+                        <div id="wiki"><!--Wiki Section-->
+                            <fieldset class="z-depth-5">
+                                <legend >What's that ingredient?!</legend>
+                                Wikipedia Search:
+                                <input type="text" id="wikiSearch">
+                                <br>
+                            </fieldset>
+                            <button id="wikiSubmit" class="btn waves-effect waves-light progress" type="submit" name="action">Search</button>
+                            <section id="wikiDisplay"></section>
+                        </div>
+                        <fieldset id="allergy" class="z-depth-5">
                             <legend>Health Options</legend>
                             <div>
                                 <ul>
                                     <li>
-                                        <label for="sugar-conscious">Sugar-Conscious</label>                                   
-                                        <input type="radio" id="sugar-conscious" name="health" value="sugar-conscious" checked>                                                                            
+                                        <label for="sugar-conscious">Sugar-Conscious</label>
+                                        <input type="radio" id="sugar-conscious" name="health" value="sugar-conscious" checked>
                                     </li>
                                     <li>
                                         <label for="peanut">Peanut-Free</label>
-                                        <input type="radio" id="peanut" name="health" value="peanut-free">                                        
+                                        <input type="radio" id="peanut" name="health" value="peanut-free">
                                     </li>
                                     <li>
                                         <label for="dairy">Dairy-Free</label>
@@ -137,37 +120,37 @@
                                     </li>
                                     <li>
                                         <label for="soy">Soy-Free</label>
-                                        <input type="radio" id="soy" name="health" value="soy-free">                            
+                                        <input type="radio" id="soy" name="health" value="soy-free">
                                     </li>
                                     <li>
                                         <label for="shellfish">ShellFish-Free</label>
-                                        <input type="radio" id="shellfish" name="health" value="shellfish-free">                                        
+                                        <input type="radio" id="shellfish" name="health" value="shellfish-free">
                                     </li>
                                     <li>
                                         <label for="gluten">Gluten-Free</label>
-                                        <input type="radio" id="gluten" name="health" value="gluten-free">                                        
+                                        <input type="radio" id="gluten" name="health" value="gluten-free">
                                     </li>
                                     <li>
                                         <label for="gluten">Vegetarian</label>
-                                        <input type="radio" id="vegetarian" name="health" value="vegetarian">                                        
+                                        <input type="radio" id="vegetarian" name="health" value="vegetarian">
                                     </li>
                                     <li>
                                         <label for="gluten">Vegan</label>
-                                        <input type="radio" id="vegan" name="health" value="vegan">                                        
+                                        <input type="radio" id="vegan" name="health" value="vegan">
                                     </li>
                                     <li>
                                         <label for="gluten">Pescatarian</label>
-                                        <input type="radio" id="pescatarian" name="health" value="pescatarian">                                        
+                                        <input type="radio" id="pescatarian" name="health" value="pescatarian">
                                     </li>
                                     <li>
                                         <label for="gluten">Kosher</label>
-                                        <input type="radio" id="kosher" name="health" value="kosher">                                        
+                                        <input type="radio" id="kosher" name="health" value="kosher">
                                     </li>
-                                </ul>                                                                
+                                </ul>
                             </div>
                         </fieldset>
                     </section>
-                    <button id="submit" type="submit">Search</button>
+                    <button id="submit" class="btn waves-effect waves-light progress" type="submit" name="action">Search</button>
                 </form>
 
                 <!-- Search History from Firebase -->
@@ -186,15 +169,17 @@
                         <li>Fourth</li>
                         <li>Fifth</li>
                     </ul>
-                </section>                
+                </section>
+
             </div>
-        </div>    
+        </div>
+
 
         <div class="row">
-            <div class="col-lg-12">                
+            <div class="col-lg-12">
                 <!-- Recipe Results -->
                 <section id="recipeDisplay">
-                    
+
                 </section>
             </div>
         </div>
@@ -210,9 +195,33 @@
 
     </main>
 
-
-    <footer>
-
+    <footer class="page-footer">
+        <!-- Footer -->
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="#!">Link 2</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 All rights reserved until tomorrow
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
     </footer>
 
 
