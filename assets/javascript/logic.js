@@ -1,3 +1,16 @@
+var config = {
+    apiKey: "AIzaSyD1KKJPWXtJjBrQsi6oR6rgLVNw5ckKnOE",
+    authDomain: "recipeapi-c3e05.firebaseapp.com",
+    databaseURL: "https://recipeapi-c3e05.firebaseio.com",
+    projectId: "recipeapi-c3e05",
+    storageBucket: "recipeapi-c3e05.appspot.com",
+    messagingSenderId: "585051342056"
+    };
+firebase.initializeApp(config);
+
+var searchCounter = 0;
+
+// This takes input from Form and searches RecipeAPI, then displays recipes
 function displayRecipe(){
     var ingredient1 = $('#ingredient1').val().trim();
     var ingredient2 = $('#ingredient2').val().trim();
@@ -20,6 +33,17 @@ function displayRecipe(){
     
     var queryURL = base + search + appId + appKey + diet + health;    
     console.log("queryURL: " + queryURL);
+
+    // Pushing search criteria to firebase
+    searchCounter ++;    
+        
+    firebase.database().ref().push({
+        searchCount:searchCounter,
+        ingredients:ingredients,
+        diet:diet,
+        health:health,
+        dateAdded:firebase.database.ServerValue.TIMESTAMP
+    });
     
     // Sends the queryURL to recipe API and returns JSON
     $.ajax({
@@ -36,10 +60,10 @@ function displayRecipe(){
             var recipeImage = $("<img class='recipeImage'>").attr("src", results[i].recipe.image).attr("alt", results[i].recipe.label);
             var recipeIng = $("<p class='recipeIng'>").text(results[i].recipe.ingredientLines);
             // why is this link loooking for url on my hard drive?
-            var recipeLink = $('<a class="recipeLink">').text(results[i].recipe.url).attr('href', '"' + results[i].recipe.url + '"').attr("target", "_blank");
+            var recipeLink = $('<a class="recipeLink">').text(results[i].recipe.url).attr('href', results[i].recipe.url).attr("target", "_blank");
 
             var infoDiv = $("<div class='recipe'>").append(recipeImage, recipeName, recipeIng, recipeLink);
-            recipeDiv.append(infoDiv);            
+            recipeDiv.append(infoDiv);
             
         };
         $("#recipeDisplay").prepend(recipeDiv);
@@ -51,4 +75,13 @@ function displayRecipe(){
 $('#submit').on('click', function(event) {
     event.preventDefault();
     displayRecipe();
+    $('input[name="ingredient"]').val('');    
 })
+
+// Firebase is tracking amount of recipe searches
+firebase.database().ref().on('child_added', function(snap) {
+    $("#searchNum").text(snap.val().searchCount);
+    searchCounter = snap.val().searchCount;
+    }, function(errorObject) {
+    console.log("The read failed: " + errorObject.code);
+});
