@@ -41,34 +41,40 @@
                             <legend>Diet</legend>
                             <ul>
                                 <li>
-                                <label for="diet_0">
-                                    <input type="radio" id="balanced" name="diet" value="balanced" checked >
+                                    <label for="diet_0">
+                                    <input type="radio" id="balanced" name="diet" value="balanced" checked>
                                     Balanced
-                                </label>
+                                    </label>
                                 </li>
                                 <li>
-                                <label for="diet_1">
-                                    <input type="radio" id="vegetarian" name="diet" value="vegetarian" >
-                                    Vegetarian
-                                </label>
+                                    <label for="diet_1">
+                                    <input type="radio" id="high-fiber" name="diet" value="high-fiber">
+                                    High-Fiber
+                                    </label>
                                 </li>
                                 <li>
-                                <label for="diet_2">
-                                    <input type="radio" id="vegan" name="diet" value="vegan">
-                                    Vegan
-                                </label>
+                                    <label for="diet_2">
+                                    <input type="radio" id="high-protein" name="diet" value="high-protein">
+                                    High-Protein
+                                    </label>
                                 </li>
                                 <li>
-                                <label for="diet_3">
-                                    <input type="radio" id="paleo" name="diet" value="paleo">
-                                    Paleo
-                                </label>
+                                    <label for="diet_3">
+                                    <input type="radio" id="low-carb" name="diet" value="low-carb">
+                                    Low-Carb
+                                    </label>
                                 </li>
                                 <li>
-                                <label for="diet_4">
-                                    <input type="radio" id="pescatarian" name="diet" value="pescatarian">
-                                    Pescatarian
-                                </label>
+                                    <label for="diet_4">
+                                    <input type="radio" id="low-fat" name="diet" value="low-fat">
+                                    Low-Fat
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="diet_5">
+                                    <input type="radio" id="low-sodium" name="diet" value="low-sodium">
+                                    Low-Sodium
+                                    </label>
                                 </li>
                             </ul>
                         </fieldset>
@@ -81,18 +87,50 @@
                         </fieldset>
                         
                         <fieldset id="allergy">
-                            <legend>Allergies</legend>
+                            <legend>Health Options</legend>
                             <div>
-                                <input type="checkbox" id="peanut" name="peanut" value="peanut">
-                                <label for="peanut">Peanut-Free</label>
-                                <input type="checkbox" id="dairy" name="dairy" value="dairy">
-                                <label for="dairy">Dairy-Free</label><br>
-                                <input type="checkbox" id="soy" name="soy" value="soy">
-                                <label for="soy">Soy-Free</label>
-                                <input type="checkbox" id="shellfish" name="shellfish" value="shellfish">
-                                <label for="shellfish">ShellFish-Free</label><br>
-                                <input type="checkbox" id="gluten" name="gluten" value="gluten">
-                                <label for="gluten">Gluten-Free</label>                                
+                                <ul>
+                                    <li>
+                                        <label for="sugar-conscious">Sugar-Conscious</label>                                   
+                                        <input type="radio" id="sugar-conscious" name="health" value="sugar-conscious" checked>                                                                            
+                                    </li>
+                                    <li>
+                                        <label for="peanut">Peanut-Free</label>
+                                        <input type="radio" id="peanut" name="health" value="peanut-free">                                        
+                                    </li>
+                                    <li>
+                                        <label for="dairy">Dairy-Free</label>
+                                        <input type="radio" id="dairy" name="health" value="dairy-free">
+                                    </li>
+                                    <li>
+                                        <label for="soy">Soy-Free</label>
+                                        <input type="radio" id="soy" name="health" value="soy-free">                            
+                                    </li>
+                                    <li>
+                                        <label for="shellfish">ShellFish-Free</label>
+                                        <input type="radio" id="shellfish" name="health" value="shellfish-free">                                        
+                                    </li>
+                                    <li>
+                                        <label for="gluten">Gluten-Free</label>
+                                        <input type="radio" id="gluten" name="health" value="gluten-free">                                        
+                                    </li>
+                                    <li>
+                                        <label for="gluten">Vegetarian</label>
+                                        <input type="radio" id="vegetarian" name="health" value="vegetarian">                                        
+                                    </li>
+                                    <li>
+                                        <label for="gluten">Vegan</label>
+                                        <input type="radio" id="vegan" name="health" value="vegan">                                        
+                                    </li>
+                                    <li>
+                                        <label for="gluten">Pescatarian</label>
+                                        <input type="radio" id="pescatarian" name="health" value="pescatarian">                                        
+                                    </li>
+                                    <li>
+                                        <label for="gluten">Kosher</label>
+                                        <input type="radio" id="kosher" name="health" value="kosher">                                        
+                                    </li>
+                                </ul>                                                                
                             </div>
                         </fieldset>
                     </section>
@@ -118,18 +156,9 @@
 
         <div class="row">
             <div class="col-lg-12">                
-                <!-- Search Results -->
+                <!-- Recipe Results -->
                 <section id="recipeDisplay">
-                    <h1 class="name">Recipe Name</h1>
-                    <img id="recipeImage" src="#" alt="RecipeImage">
-                        
-                    <p id="recipeLink">a link to the recipe</p>
-        
-                    <p>some other stuff</p>
-        
-                    <p>ingredients</p>
-        
-                    <p>nutritional info?</p>
+                    
                 </section>
             </div>
         </div>
@@ -138,7 +167,7 @@
     
     
     <footer>
-        <!-- Search Information from Firebase -->
+        
     </footer>
 
 

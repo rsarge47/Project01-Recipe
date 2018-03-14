@@ -74,11 +74,16 @@ main {
     margin: 0 auto;
     clear: both;
 }
-#recipeDisplay {
+.recipeDisplay {
     margin-top: 30px;
     padding-top: 30px;
     width: 100%;
     max-width: 960px;
     clear: both;
     background-color: rgb(134, 109, 85);
+}
+.recipe {
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid black;
 }

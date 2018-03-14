@@ -1,39 +1,62 @@
 function displayRecipe(){
-    // need to solve bug created with spaces between words in ingredient input
     var ingredient1 = $('#ingredient1').val().trim();
     var ingredient2 = $('#ingredient2').val().trim();
     var ingredient3 = $('#ingredient3').val().trim();
     var ingredients = ingredient1 + "+" + ingredient2 + "+" + ingredient3;
-    console.log("ingredient: " + ingredients);
+    console.log("ingredients: " + ingredients);
+    var search = "q=" + ingredients;
    
     var diet = document.querySelector('input[name="diet"]:checked').value;
     console.log("Diet: " + diet);
+    diet = "&diet=" + diet;
     
-    // This is making an array of the checkbox's that have been checked
-    var allergy = [];
-    $(':checkbox:checked').each(function(i){
-        allergy[i] = $(this).val();
-    });
-    // This is taking the array and displaying it with +'s in between each value
-    var allergies = allergy.join("+");
-    console.log("allergies: " + allergies);
+    var health = document.querySelector('input[name="health"]:checked').value;
+    console.log("Health: " + health);
+    health = "&health=" + health;
 
     var base = "https://api.edamam.com/search?";
     var appId = "&app_id=bcfc903e";
     var appKey = "&app_key=1878067c0d9fc8775b5834269ffb3bed";
-    // This isn't fixed, and it breaks the URL
-    var health = "&health=" + diet + "+" + allergies;
-    var search = "q=" + ingredients;
-    var queryURL = base + search + appId + appKey;
     
+    var queryURL = base + search + appId + appKey + diet + health;    
     console.log("queryURL: " + queryURL);
     
+    // Sends the queryURL to recipe API and returns JSON
     $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        var results = response.hits[0].recipe.label;
-        $('.name').text(results);
-        console.log(results);
+        var results = response.hits;
+
+        var recipeDiv = $("<div class='displayRecipe'>");
+
+        for (var i = 0; i < results.length; i++) {
+
+            var infoDiv = $("<div class='recipe'>");                        
+            var recipeName = $("<h3 class='recipeName'>").text(results[i].recipe.label);            
+            var recipeImage = $("<img class='recipeImage'>");
+            var recipeIng = $("<p class='recipeIng'>").text(results[i].recipe.ingredientLines);
+
+            // This link isn't correctly added to infoDiv
+            var recipeLink = $("<a class='recipeLink'>").attr("href", results[i].recipe.url);
+            console.log("recipeLink: " + results[i].recipe.url);
+                      
+            recipeImage.attr("src", results[i].recipe.image);
+            recipeImage.attr("alt", results[i].recipe.label);           
+            infoDiv.append(recipeImage);
+            infoDiv.append(recipeName);
+            infoDiv.append(recipeIng);
+            infoDiv.append(recipeLink);
+            recipeDiv.append(infoDiv);            
+            
+        };
+        $("#recipeDisplay").prepend(recipeDiv);
+
       });
 };
+
+// When you click submit button a search is performed in the recipe API
+$('#submit').on('click', function(event) {
+    event.preventDefault();
+    displayRecipe();
+})
