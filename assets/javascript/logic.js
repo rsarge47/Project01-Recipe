@@ -24,29 +24,21 @@ function displayRecipe(){
     // Sends the queryURL to recipe API and returns JSON
     $.ajax({
         url: queryURL,
-        method: "GET"
-      }).then(function(response) {
+        method: "GET",
+        dataType: "jsonp"
+      }).then(function(response) {        
         var results = response.hits;
-
         var recipeDiv = $("<div class='displayRecipe'>");
 
         for (var i = 0; i < results.length; i++) {
-
-            var infoDiv = $("<div class='recipe'>");                        
+                        
             var recipeName = $("<h3 class='recipeName'>").text(results[i].recipe.label);            
-            var recipeImage = $("<img class='recipeImage'>");
+            var recipeImage = $("<img class='recipeImage'>").attr("src", results[i].recipe.image).attr("alt", results[i].recipe.label);
             var recipeIng = $("<p class='recipeIng'>").text(results[i].recipe.ingredientLines);
+            // why is this link loooking for url on my hard drive?
+            var recipeLink = $('<a class="recipeLink">').text(results[i].recipe.url).attr('href', '"' + results[i].recipe.url + '"').attr("target", "_blank");
 
-            // This link isn't correctly added to infoDiv
-            var recipeLink = $("<a class='recipeLink'>").attr("href", results[i].recipe.url);
-            console.log("recipeLink: " + results[i].recipe.url);
-                      
-            recipeImage.attr("src", results[i].recipe.image);
-            recipeImage.attr("alt", results[i].recipe.label);           
-            infoDiv.append(recipeImage);
-            infoDiv.append(recipeName);
-            infoDiv.append(recipeIng);
-            infoDiv.append(recipeLink);
+            var infoDiv = $("<div class='recipe'>").append(recipeImage, recipeName, recipeIng, recipeLink);
             recipeDiv.append(infoDiv);            
             
         };
