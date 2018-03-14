@@ -4,7 +4,6 @@
     margin: 0 auto;
     clear: both;
 }
-
 .page-top {
     width: 100%;
     margin: 0;
@@ -21,7 +20,6 @@
     text-decoration: none;
     background-image: url("../../assets/images/newcook.png");
 }
-
 .navbar {
     font-family: 'Audiowide', cursive;
     float: right;
@@ -32,17 +30,8 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i{
     background: none;
 }
 
-lable{
+label{
     color: aquamarine;
-}
-
-.navbar a {
-    display: inline-block;
-    padding-left: 15px;
-    margin-left: 15px;
-    color: turquoise;
-    font-size: 2em;
-    border-left: 3px solid rgb(150, 33, 33);
 }
 
 .navbar a:first-child {
@@ -72,18 +61,11 @@ fieldset{
 
 #search-form {
     background-color: #BB9562;
-    float: left;
-    width: 100%;
-    max-width: 350px;
-    padding: 20px;
-    border: 1px solid black;
-    border-radius: 20px;
 }
 
 #allergy {
     text-align: right;
 }
-
 #history {
     float: right;
     width: 100%;
@@ -94,8 +76,7 @@ fieldset{
     border: 1px solid #120703;
     border-radius: 20px;
 }
-
-main {
+main {    
     padding-top: 30px;
     width: 100%;
     max-width: 960px;
@@ -110,56 +91,10 @@ main {
     width: 100%;
     max-width: 960px;
     clear: both;
-    background-color: #BB9562;
-    border-radius: 20px;
-    border: 1px solid #120703;
+    background-color: rgb(134, 109, 85);
 }
-
-.tone:hover {
-    background: teal;
-}
-
-#recipeImage {
-    width: 10%;
-}
-
-h1,
-h2,
-h3 {
-    color: turquoise;
-}
-input{
-    margin-bottom: 5px;
-}
-@media only screen and ( max-width: 980px) {
-    #recipeDisplay {
-        background-color: #BB9562;
-        float: left;
-        width: 100%;
-        max-width: 650px;
-        padding: 20px;
-        border: 1px solid #120703;
-        border-radius: 20px;
-    }
-    #history {
-        margin-top: 30px;
-        padding-top: 30px;
-        width: 100%;
-        max-width: 650px;
-        clear: both;
-        background-color: #BB9562;
-        float: left;
-        border: 1px solid #120703;
-        border-radius: 20px;
-        
-    }
-    #search-form {
-        background-color: #BB9562;
-        float: left;
-        width: 100%;
-        max-width: 955px;
-        padding: 20px;
-        border: 1px solid #120703;
-        border-radius: 20px;
-    }
+.recipe {
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid black;
 }
