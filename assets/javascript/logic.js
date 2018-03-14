@@ -24,34 +24,23 @@ function displayRecipe(){
     // Sends the queryURL to recipe API and returns JSON
     $.ajax({
         url: queryURL,
-        method: "GET"
-      }).then(function(response) {
+        method: "GET",
+        dataType: "jsonp"
+      }).then(function(response) {        
         var results = response.hits;
-
         var recipeDiv = $("<div class='displayRecipe'>");
-
         for (var i = 0; i < results.length; i++) {
-
-            var infoDiv = $("<div class='recipe'>");                        
+                        
             var recipeName = $("<h3 class='recipeName'>").text(results[i].recipe.label);            
-            var recipeImage = $("<img class='recipeImage'>");
+            var recipeImage = $("<img class='recipeImage'>").attr("src", results[i].recipe.image).attr("alt", results[i].recipe.label);
             var recipeIng = $("<p class='recipeIng'>").text(results[i].recipe.ingredientLines);
-
-            // This link isn't correctly added to infoDiv
-            var recipeLink = $("<a class='recipeLink'>").attr("href", results[i].recipe.url);
-            console.log("recipeLink: " + results[i].recipe.url);
-                      
-            recipeImage.attr("src", results[i].recipe.image);
-            recipeImage.attr("alt", results[i].recipe.label);           
-            infoDiv.append(recipeImage);
-            infoDiv.append(recipeName);
-            infoDiv.append(recipeIng);
-            infoDiv.append(recipeLink);
+            // why is this link loooking for url on my hard drive?
+            var recipeLink = $('<a class="recipeLink">').text(results[i].recipe.url).attr('href', results[i].recipe.url).attr("target", "_blank");
+            var infoDiv = $("<div class='recipe'>").append(recipeImage, recipeName, recipeIng, recipeLink);
             recipeDiv.append(infoDiv);            
             
         };
         $("#recipeDisplay").prepend(recipeDiv);
-
       });
 };
 
@@ -59,4 +48,50 @@ function displayRecipe(){
 $('#submit').on('click', function(event) {
     event.preventDefault();
     displayRecipe();
-})
+});
+
+
+
+//start of wiki API
+//----------------------------------------------------------------------------
+
+
+function displayWiki(){
+        var wikiSearch = $('#wikiSearch').val().trim();
+        console.log(wikiSearch);
+
+        var wikiqueryURL = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + wikiSearch + "&limit=1&namespace=0&format=json";
+        console.log(wikiqueryURL);
+    
+    $.ajax({
+        url: wikiqueryURL,
+        method: "GET",
+        dataType: 'jsonp'
+      }).then(function(response) {
+        var results = response;
+
+        console.log(results);
+
+        var wikiDiv = $("<div class='displayWiki'>");
+        var wikiName = $("<h3 class='wikiName'>").text(results[1]);
+        var wikiDescription = $("<p class='wikiDescription'>").text(results[2]);
+        var wikiURL = $("<a class='wikiURL'>").text(results[3]).attr('href', results[3]).attr("target", "_blank");
+        $("#wikiDisplay").append(wikiName, wikiDescription, wikiURL);
+
+      });
+
+    }
+    
+    $('#wikiSubmit').on('click', function(event) {
+        event.preventDefault();
+        displayWiki();
+    });
+
+
+    $("#wikiClear").on('click', function(event) {
+        event.preventDefault();
+        $("#wikiDisplay").empty();
+    });
+
+
+

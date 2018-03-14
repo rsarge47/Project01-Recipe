@@ -87,3 +87,13 @@ main {
     background-color: white;
     border: 1px solid black;
 }
+
+#wiki {
+    float: right;
+    width: 100%;
+    max-width: 635px;
+    padding: 30px;
+    margin: 0 0 40px;
+    background-color: rgb(134, 109, 85);
+    border: 1px solid #ddd; 
+}

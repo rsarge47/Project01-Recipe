@@ -46,12 +46,12 @@
                                     Balanced
                                     </label>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <label for="diet_1">
                                     <input type="radio" id="high-fiber" name="diet" value="high-fiber">
                                     High-Fiber
                                     </label>
-                                </li>
+                                </li> -->
                                 <li>
                                     <label for="diet_2">
                                     <input type="radio" id="high-protein" name="diet" value="high-protein">
@@ -70,12 +70,12 @@
                                     Low-Fat
                                     </label>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <label for="diet_5">
                                     <input type="radio" id="low-sodium" name="diet" value="low-sodium">
                                     Low-Sodium
                                     </label>
-                                </li>
+                                </li> -->
                             </ul>
                         </fieldset>
                         
@@ -98,22 +98,35 @@
                                         <label for="peanut">Peanut-Free</label>
                                         <input type="radio" id="peanut" name="health" value="peanut-free">                                        
                                     </li>
+
+                                <!-- TEST -->
                                     <li>
                                         <label for="dairy">Dairy-Free</label>
                                         <input type="radio" id="dairy" name="health" value="dairy-free">
                                     </li>
+                                <!-- ***************************************** -->
+
+                                <!-- TEST -->
                                     <li>
                                         <label for="soy">Soy-Free</label>
                                         <input type="radio" id="soy" name="health" value="soy-free">                            
                                     </li>
+                                <!-- ***************************************** -->
+
+                                <!-- TEST -->
                                     <li>
                                         <label for="shellfish">ShellFish-Free</label>
                                         <input type="radio" id="shellfish" name="health" value="shellfish-free">                                        
                                     </li>
+                                <!-- ***************************************** -->
+
+                                <!-- TEST -->
                                     <li>
                                         <label for="gluten">Gluten-Free</label>
                                         <input type="radio" id="gluten" name="health" value="gluten-free">                                        
                                     </li>
+                                <!-- ***************************************** -->
+
                                     <li>
                                         <label for="gluten">Vegetarian</label>
                                         <input type="radio" id="vegetarian" name="health" value="vegetarian">                                        
@@ -122,19 +135,28 @@
                                         <label for="gluten">Vegan</label>
                                         <input type="radio" id="vegan" name="health" value="vegan">                                        
                                     </li>
+
+                                <!-- TEST -->
                                     <li>
                                         <label for="gluten">Pescatarian</label>
                                         <input type="radio" id="pescatarian" name="health" value="pescatarian">                                        
                                     </li>
+                                <!-- ***************************************** -->
+
+                                <!-- TEST -->
                                     <li>
                                         <label for="gluten">Kosher</label>
                                         <input type="radio" id="kosher" name="health" value="kosher">                                        
                                     </li>
+                                 
+                                <!-- ***************************************** -->
                                 </ul>                                                                
                             </div>
                         </fieldset>
                     </section>
+                    <div>
                     <button id="submit" type="submit">Search</button>
+                    </div>
                 </form>
 
                 <!-- Search History from Firebase -->
@@ -150,7 +172,15 @@
                         <li>Fifth</li>
                     </ul>
                 </section>
-                
+                <div id="wiki">
+                        <fieldset>
+                                <legend>What's that ingredient?!</legend>                       
+                                Wikipedia Search: <input type="text" id="wikiSearch"><br>
+                            </fieldset>
+                    <button id="wikiSubmit" type="submit">Search</button></br>
+                    <button id="wikiClear" type="clear">Clear</button>
+                    <section id="wikiDisplay"></section></br>
+                </div>
             </div>
         </div>    
 
@@ -173,5 +203,6 @@
 
     <!-- Javascript -->
     <script src="assets/javascript/logic.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 </body>
 </html>
