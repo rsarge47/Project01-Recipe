@@ -1,3 +1,4 @@
+/* Navbar Styles */
 .page-top {
     width: 100%;
     margin: 0;
@@ -9,6 +10,8 @@
     clear: both;
 }
 #home {
+    border: 2px solid white;
+    border-radius: 20px;
     float: left;
     width: 320px;
     height: 130px;
@@ -19,13 +22,11 @@
     text-decoration: none;
     background-image: url("../../assets/images/newcook.png");
 }
-
 .navbar {
     font-family: 'Audiowide', cursive;
     float: right;
     margin-top: 25px;
 }
-
 .navbar a {
     display: inline-block;
     padding-left: 15px;
@@ -34,11 +35,16 @@
     font-size: 1em;
     border-left: 3px solid #850D03;
 }
-
 .navbar a:first-child {
     border-left: none;
 }
-
+nav,
+nav .nav-wrapper i,
+nav a.button-collapse,
+nav a.button-collapse i {
+    width: 60%;
+    background: none;
+}
 
 /*_____ General CSS for Entire Page _____*/
 body {
@@ -53,136 +59,96 @@ main {
     margin: 0 auto;
     clear: both;
 }
+h1,
+h2,
+h3,
+h6 {
+    color: turquoise; margin: 0;
+}
 
 /*_____ CSS for Input Form _____*/
-
+label {
+    font-size: 15px;
+    color: #D72016;
+}
+input {
+    margin-bottom: 5px;
+}
 #search-form {
     background-color: #BB9562;
-    /* float: left; */
     width: 100%;
-    /* max-width: 320px; */
     padding: 20px;
     border: 1px solid #850D03;
     border-radius: 20px;
     margin-bottom: 20px;
 }
-
 #diet {
     padding-left: 20px;
     padding-right: 30px;
-    width: 150px;
-    box-sizing: ;
+    width: 180px;
+    height: 100px;
     border: 2px solid turquoise;
     border-radius: 20px;
     float: left;
 }
-
 #allergy {
-    text-align: center;
-    display: inline;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    float: left;
-    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 30px;
+    width: 180px;
+    height: 100px;
     border: 2px solid turquoise;
     border-radius: 20px;
+    float: left;
 }
-#recipeSet{
-    display: inline;
-    margin-left: 10px;
-    margin-right: 10px;
-    /* margin-bottom: 10px; */
-    float: left;
-    box-sizing: border-box;
-    border: 2px solid turquoise;
-    border-radius: 20px;
-    padding-top: 10px;
-
+#recipeSet {
+    margin: 0;
+    height: 100px;
 }
 
 /*_____ CSS for Search History Display _____*/
-
-#wikiSet{
-    display: inline;
-    margin-left: 10px;    
-    margin-right: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border: 2px solid turquoise;
-    border-radius: 20px;
-}
-.tone {
-    color: black;
-}
-
-
 #history {
-    /* float: right; */
-    width: 100%;
-    /* max-width: 600px; */
+    width: 100%;    
     padding: 30px;
-    margin: 0 ;
-    background-color: #6C5A30;
+    margin-bottom: 20px;
+    background-color: #F4E0B2;
     border: 1px solid #850D03;
     border-radius: 20px;
 }
-
-#recipeDisplay {
-    /* margin-top: 30px; */
-    padding-top: 30px;
-    padding-left: 30px;
-    width: 100%;
-    max-width: 955px;
-    /* clear: both; */
-    background-color: #BB9562;
-    border-radius: 20px;
-    border: 1px solid #850D03;
-}
-
 .tone:hover {
     background: teal;
 }
-
 .page-footer {
     padding-top: 20px;
     color: #fff;
     background-color: #850D03;
     margin-top: 10px;
 }
-.recipe{
-
-}
-
-.row {
-    margin: 0;
-}
-
-
 .searchTab th {
     text-decoration: underline;
     font-weight: bold; 
 }
 .searchTab th, .searchTab td {
     font-size: 1em;
-    border: 1px dashed black;
+    border: 1px solid rgba(141, 137, 137, 0.5);
     padding: 20px;
 }
 
 
 /*_____ CSS for Recipes Display _____*/
-.recipeDisplay {
-    margin-top: 30px;
+.displayRecipe {
     padding-top: 30px;
-    width: 100%;
-    max-width: 960px;
-    clear: both;
-    background-color: rgb(134, 109, 85);
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;    
+    background-color: #BB9562;
+    border-radius: 20px;
+    border: 1px solid #850D03;
 }
+
 .recipe {
     margin-top: 30px;
-    background-color: white;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    overflow: hidden;
 }
 .noResponse {
     color: red;
@@ -192,102 +158,35 @@ main {
     margin-top: 20px;
     padding: 20px;
 }
+.recipeImage{
+    float: right;
+    padding-bottom: 20px;
+}
+
 
 /*_____ CSS for wiki search _____*/
 #wiki {
-    float: right;
-    width: 100%;
-    max-width: 635px;
-    padding: 30px;
-    margin: 0 0 40px;
-    background-color: rgb(134, 109, 85);
-    border: 1px solid #ddd; 
+    margin-top: 10px;
+    margin-left: 10px;    
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 2px solid turquoise;
+    border-radius: 20px;
 }
 #alert {
     font-weight: bold;
     color: red;
     border-color: 1px solid white;
 }
-
-main {    
-    padding-top: 30px;
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    clear: both;
-}
-img{
-    width: 150px;
-    margin-bottom: 10px;
-
-
-}
-
-nav,
-nav .nav-wrapper i,
-nav a.button-collapse,
-nav a.button-collapse i {
-    width: 60%;
-    background: none;
-}
-
-/* fieldset {
-    display: inline;
+fieldset {    
     margin-left: auto;
     margin-right: 10px;
-    margin-bottom: 10px;
-    float: left;
+    margin-bottom: 10px;    
     box-sizing: border-box;
     border: 2px solid turquoise;
-    border-radius: 20px; */
-
-
-label {
-    font-size: 15px;
-    color: #D72016;
+    border-radius: 20px;
 }
-
-h1,
-h2,
-h3,
-h6 {
-    color: turquoise; margin: 0;
+#wikiClear {
+    width: 175px;
 }
-
-input {
-    margin-bottom: 5px;
-}
-
-/* Media Query */
-
-/* @media only screen and ( max-width: 980px) {
-    #recipeDisplay {
-        background-color: #BB9562;
-        float: left;
-        width: 100%;
-        max-width: 650px;
-        padding: 20px;
-        border: 2px solid #850D03;
-        border-radius: 20px;
-    }
-    #history {
-        margin-top: 30px;
-        padding-top: 30px;
-        width: 100%;
-        max-width: 650px;
-        clear: both;
-        background-color: #BB9562;
-        float: left;
-        border: 2px solid #850D03;
-        border-radius: 20px;
-    }
-    #search-form {
-        background-color: #BB9562;
-        float: left;
-        width: 100%;
-        max-width: 955px;
-        padding: 20px;
-        border: 2px solid #850D03;
-        border-radius: 20px;
-    }
-} */
