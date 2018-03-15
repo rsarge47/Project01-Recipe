@@ -52,7 +52,6 @@ $(document).ready(function () {
         searchCounter++;
         // Pushing search criteria to firebase
         firebase.database().ref().push({
-            searchCount: searchCounter,
             ing1: ingredient1,
             ing2: ingredient2,
             ing3: ingredient3,
@@ -108,22 +107,19 @@ $(document).ready(function () {
     })
 
     // Firebase is displaying last 5 search terms and tracking number of searches
-    firebase.database().ref().limitToLast(5).on('child_added', function(snap) {
-    
-    $("#searchNum").text(snap.val().searchCount);
-    var count = $('.searchTab tr').length;
-    console.log("row count: "+ count);
-    if (count > 5) {
-        $('.searchTab tr:last').remove();
-    }
-    $(".searchTab").prepend("<tr class='trow'><td> " +
-        snap.val().diet + " </td><td> " +
-        snap.val().ing1 + " </td><td> " +
-        snap.val().ing2 + " </td><td> " +
-        snap.val().ing3 + "</td><td> " +
-        snap.val().health + "</td></tr>");
-    }, function(errorObject) {
-    console.log("The read failed: " + errorObject.code);
+    firebase.database().ref().limitToLast(5).on('child_added', function(snap) {    
+        var count = $('.searchTab tr').length;
+        if (count > 5) {
+            $('.searchTab tr:last').remove();
+        }
+        $(".searchTab").prepend("<tr class='trow'><td> " +
+            snap.val().diet + " </td><td> " +
+            snap.val().ing1 + " </td><td> " +
+            snap.val().ing2 + " </td><td> " +
+            snap.val().ing3 + "</td><td> " +
+            snap.val().health + "</td></tr>");
+        }, function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
     });
     //----------------------------------------------------------------------------
     
