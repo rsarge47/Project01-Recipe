@@ -42,6 +42,7 @@
             </nav>
         </div>
     </header>
+
     <!-- Main container -->
     <main>
         <div class="row">
@@ -69,9 +70,6 @@
 
                         <!-- Health Options -->
                         <fieldset id="allergy" class="z-depth-5">
-                            <!-- <legend>Health Options</legend> -->
-                            <!-- <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Health</a> -->
-
                             <div class="input-field col s12 m12">
                                 <select class="icons">
                                     <option name="health" value="sugar-conscious" checked>Sugar-Conscious</option>
@@ -81,18 +79,17 @@
                                     <option name="health" value="vegan">Vegan</option>
                                     <option name="health" value="alcohol-free">Alcohol-Free</option>
                                 </select>
+
                                 <label>
                                     <h6>Health options</h6>
-                                </label>
-                                
+                                </label>                                
                             </div>
                         </fieldset>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <!--Recipes Containing-->
-                                <fieldset id="recipeSet" class="z-depth-5 input-field col s12">
-                                    <!-- <legend>Recipes Containing:</legend> -->
+                                <fieldset id="recipeSet" class="z-depth-5 input-field col s12">                                    
                                     <div class="input-field col s4">
                                         <input type="text" id="ingredient1" name="ingredient">
                                         <label for="text">
@@ -111,7 +108,6 @@
                                             <h6>Third Ingredient</h6>
                                         </label>
                                     </div>
-
                                 </fieldset>
                             </div>
                         </div>
@@ -123,20 +119,18 @@
                         <button id="clearRecipe" class="btn waves-effect waves-light" type="submit" name="action">Clear Recipes
                             <i class="material-icons right">delete_sweep</i>
                         </button>
-
                         
-                            <!--Wiki Section-->
-                            <fieldset id="wiki" class="z-depth-5">                                
-                                <h3>What's that ingredient?!</h3>
-                                Wikipedia Search:
-                                <input type="text" id="wikiSearch">
-                                <br>
-                                <button id="wikiSubmit" class="btn waves-effect waves-light progress" type="submit" name="action">Search</button>
-                                <button id="wikiClear" class="btn waves-effect waves-light progress" type="clear">Clear<i class="material-icons right">delete_sweep</i></button>
-                                <div id="alert"></div>
-                                <section id="wikiDisplay"></section>                            
-                            </fieldset>
-                        
+                        <!--Wiki Section-->
+                        <fieldset id="wiki" class="z-depth-5">                                
+                            <h3>What's that ingredient?!</h3>
+                            Wikipedia Search:
+                            <input type="text" id="wikiSearch">
+                            <br>
+                            <button id="wikiSubmit" class="btn waves-effect waves-light progress" type="submit" name="action">Search<i class="material-icons right">search</i></button>
+                            <button id="wikiClear" class="btn waves-effect waves-light progress" type="clear">Clear<i class="material-icons right">delete_sweep</i></button>
+                            <div id="alert"></div>
+                            <section id="wikiDisplay"></section>                            
+                        </fieldset>                        
 
                     </section>
                 </form>
@@ -159,10 +153,11 @@
                     </table>
                 </section>
                 
-                        <span class="flow-text">
-                            <section id="recipeDisplay"></section>
-                        </span>
-                    
+                <span class="flow-text">
+                    <section id="recipeDisplay"></section>
+                </span>
+            </div>
+        </div>     
     </main>
     <!-- End Of Main Container -->
 
@@ -186,6 +181,7 @@
             <div class="container">
                 © 2018 All rights reserved until tomorrow
             </div>
+        </div>
     </footer>
 
 
