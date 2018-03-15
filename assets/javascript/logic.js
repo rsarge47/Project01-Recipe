@@ -57,6 +57,12 @@ function displayRecipe(){
         var results = response.hits;
         var recipeDiv = $("<div class='displayRecipe'>");
 
+        if (!response.more) {
+            var noResponse = $("<h3 class='noResponse'>").text("Sorry, no recipes for " + ingredient1 + ", " + ingredient2 + ", " + ingredient3);
+            $("#recipeDisplay").prepend(noResponse);
+            console.log(noResponse);
+        }
+
         for (var i = 0; i < results.length; i++) {
                         
             var recipeName = $("<h3 class='recipeName'>").text(results[i].recipe.label);            
