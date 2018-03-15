@@ -25,6 +25,7 @@ firebase.database().ref().limitToLast(5).on('child_added', function(snap) {
 });
 
 // Start of first API (edamam)
+
 function displayRecipe(){
     var ingredient1 = $('#ingredient1').val().trim();
     var ingredient2 = $('#ingredient2').val().trim();
@@ -55,22 +56,30 @@ function displayRecipe(){
         dataType: "jsonp"
       }).then(function(response) {        
         var results = response.hits;
+
+
+        if (!response.more) {
+            var noResponse = $("<h3 class='noResponse'>").text("Sorry, no recipes for " + ingredient1 + ", " + ingredient2 + ", " + ingredient3);
+            $("#recipeDisplay").prepend(noResponse);
+            console.log(noResponse);
+        }
+
         var recipeDiv = $("<div class='displayRecipe'>");
         for (var i = 0; i < results.length; i++) {
-                        
+
             var recipeName = $("<h3 class='recipeName'>").text(results[i].recipe.label);            
             var recipeImage = $("<img class='recipeImage'>").attr("src", results[i].recipe.image).attr("alt", results[i].recipe.label);
             var recipeIng = $("<p class='recipeIng'>").text(results[i].recipe.ingredientLines);
             // why is this link loooking for url on my hard drive?
             var recipeLink = $('<a class="recipeLink">').text(results[i].recipe.url).attr('href', results[i].recipe.url).attr("target", "_blank");
             var infoDiv = $("<div class='recipe'>").append(recipeImage, recipeName, recipeIng, recipeLink);
-            recipeDiv.append(infoDiv);            
-            
+            recipeDiv.append(infoDiv);      
+         
         };
         $("#recipeDisplay").prepend(recipeDiv);
       });
 };
-
+  
 // When you click submit button a search is performed in the recipe API
 $('#submit').on('click', function(event) {
     event.preventDefault();

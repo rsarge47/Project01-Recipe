@@ -101,5 +101,13 @@ main {
 #alert {
     font-weight: bold;
     color: red;
-    border-color: 1px solid white;
+}
+
+.noResponse {
+    color: red;
+    border: 1px solid white;
+    background-color: beige; 
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 20px;
 }
