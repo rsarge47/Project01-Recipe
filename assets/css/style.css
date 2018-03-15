@@ -1,3 +1,4 @@
+/*_____ CSS for Nav Bar _____*/
 .menubar {
     width: 100%;
     max-width: 960px;
@@ -35,10 +36,21 @@
 .navbar a:first-child {
     border-left: none;
 }
+
+/*_____ General CSS for Entire Page _____*/
 body {
     background-image: url("../../assets/images/fandb.jpg");
     font-family: 'Khand', sans-serif;
 }
+main {    
+    padding-top: 30px;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    clear: both;
+}
+
+/*_____ CSS for Input Form _____*/
 #diet {
     padding-left: 20px;
     padding-right: 30px;
@@ -58,6 +70,8 @@ body {
 #allergy {
     text-align: right;
 }
+
+/*_____ CSS for Search History Display _____*/
 #history {
     float: right;
     width: 100%;
@@ -76,13 +90,8 @@ body {
     border: 1px dashed black;
     padding: 20px;
 }
-main {    
-    padding-top: 30px;
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    clear: both;
-}
+
+/*_____ CSS for Recipes Display _____*/
 .recipeDisplay {
     margin-top: 30px;
     padding-top: 30px;
@@ -95,4 +104,20 @@ main {
     margin-top: 30px;
     background-color: white;
     border: 1px solid black;
+}
+
+/*_____ CSS for wiki search _____*/
+#wiki {
+    float: right;
+    width: 100%;
+    max-width: 635px;
+    padding: 30px;
+    margin: 0 0 40px;
+    background-color: rgb(134, 109, 85);
+    border: 1px solid #ddd; 
+}
+#alert {
+    font-weight: bold;
+    color: red;
+    border-color: 1px solid white;
 }
