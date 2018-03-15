@@ -106,7 +106,17 @@ label {
     border-radius: 20px;
 }
 
-main {
+
+.searchTab th {
+    text-decoration: underline;
+    font-weight: bold; 
+}
+.searchTab th, .searchTab td {
+    font-size: 1em;
+    border: 1px dashed black;
+    padding: 20px;
+}
+main {    
     padding-top: 30px;
     width: 100%;
     max-width: 960px;
