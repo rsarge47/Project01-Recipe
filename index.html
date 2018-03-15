@@ -1,5 +1,6 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -9,115 +10,159 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!--Materialized Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Materialized Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Audiowide|Khand" rel="stylesheet">
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+
     <title>Project01-Recipe</title>
 </head>
+
 <body>
     <header class="page-top">
         <div class="menubar">
             <a href="index.html" id="home"></a>
-            
             <nav class="navbar">
                 <!-- this is the navigation bar -->
-                <a href="#">About</a>
-                <a href="#">Sources</a>
-                <a href="#">Contact</a>                
+                <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="5 Star Team">About</a>
+                <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Materialize,Edamam API, Wiki API">Sources</a>
+                <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Robert Max Sergio">Contact</a>
             </nav>
         </div>
     </header>
-
-    <main>        
+    <!-- Main container -->
+    <main>
         <div class="row">
             <div class="col-lg-12">
                 <!-- Search Input -->
                 <form id="search-form">
                     <section>
-                        <h2>Find a Recipe</h2>
-                        <fieldset id="diet">
-                            <legend>Diet</legend>
-                            <ul>
-                                <li>
-                                    <label for="diet_0">
-                                    <input type="radio" id="balanced" name="diet" value="balanced" checked>
-                                    Balanced
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="diet_2">
-                                    <input type="radio" id="high-protein" name="diet" value="high-protein">
-                                    High-Protein
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="diet_3">
-                                    <input type="radio" id="low-carb" name="diet" value="low-carb">
-                                    Low-Carb
-                                    </label>
-                                </li>
-                                <li>
-                                    <label for="diet_4">
-                                    <input type="radio" id="low-fat" name="diet" value="low-fat">
-                                    Low-Fat
-                                    </label>
-                                </li>                            
-                            </ul>
+                        <h2 class="text-center">Find a Recipe</h2>
+                        <fieldset id="diet" class="z-depth-5">
+                            <div class="input-field col s12 m12">
+                                <select class="icons">
+                                    <option id="balanced" name="diet" value="balanced" checked>Balanced</option>
+                                    <option id="high-protein" name="diet" value="high-protein">High-Protein</option>
+                                    <option id="low-carb" name="diet" value="low-carb">Low-Carb</option>
+                                    <option id="low-fat" name="diet" value="low-fat">Low-Fat</option>
+                                </select>
+
+                                <label>
+                                    <h6>Diet options</h6>
+                                </label>
+                                <br>
+                            </div>
+                            </li>
                         </fieldset>
-                        
-                        <fieldset>
-                            <legend>Recipes Containing:</legend>                       
-                            Ingredient: <input type="text" id="ingredient1" name="ingredient"><br>
-                            Ingredient: <input type="text" id="ingredient2" name="ingredient"><br>
-                            Ingredient: <input type="text" id="ingredient3" name="ingredient">
-                        </fieldset>
-                        
-                        <fieldset id="allergy">
-                            <legend>Health Options</legend>
+
+
+                        <!-- Health Options -->
+                        <fieldset id="allergy" class="z-depth-5">
+                            <!-- <legend>Health Options</legend> -->
+                            <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Allergies!</a>
+
                             <div>
-                                <ul>
+                                <ul id='dropdown1' class='dropdown-content'>
                                     <li>
-                                        <label for="sugar-conscious">Sugar-Conscious</label>                                   
-                                        <input type="radio" id="sugar-conscious" name="health" value="sugar-conscious" checked>                                                                            
+                                        <label for="sugar-conscious">Sugar-Conscious</label>
+                                        <input type="radio" id="sugar-conscious" name="health" value="sugar-conscious" checked>
                                     </li>
+
                                     <li>
                                         <label for="peanut">Peanut-Free</label>
-                                        <input type="radio" id="peanut" name="health" value="peanut-free">                                        
+                                        <input type="radio" id="peanut" name="health" value="peanut-free">
                                     </li>
                                     <li>
                                         <label for="tree-nut">Tree-Nut-Free</label>
-                                        <input type="radio" id="tree-nut" name="health" value="tree-nut-free">                                        
+                                        <input type="radio" id="tree-nut" name="health" value="tree-nut-free">
                                     </li>
                                     <li>
                                         <label for="vegetarian">Vegetarian</label>
-                                        <input type="radio" id="vegetarian" name="health" value="vegetarian">                                        
+                                        <input type="radio" id="vegetarian" name="health" value="vegetarian">
                                     </li>
                                     <li>
                                         <label for="vegan">Vegan</label>
-                                        <input type="radio" id="vegan" name="health" value="vegan">                                        
+                                        <input type="radio" id="vegan" name="health" value="vegan">
                                     </li>
                                     <li>
                                         <label for="alcohol">Alcohol-Free</label>
-                                        <input type="radio" id="alcohol" name="health" value="alcohol-free">                                        
-                                    </li>
-                                </ul>                                                                
+                                        <input type="radio" id="alcohol" name="health" value="alcohol-free">
+
+                                </ul>
                             </div>
                         </fieldset>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--Recipes Containing-->
+                                <fieldset id="recipeSet" class="z-depth-5 input-field col s12">
+                                    <!-- <legend>Recipes Containing:</legend> -->
+                                    <div class="input-field col s4">
+                                        <input type="text" id="ingredient1" name="ingredient">
+                                        <label for="text">
+                                            <h6>First Ingredient</h6>
+                                        </label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input type="text" id="ingredient2" name="ingredient">
+                                        <label for="text">
+                                            <h6>Second Ingredient</h6>
+                                        </label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input type="text" id="ingredient3" name="ingredient">
+                                        <label for="text">
+                                            <h6>Third Ingredient</h6>
+                                        </label>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div id="wiki">
+
+                                <!--Wiki Section-->
+                                <fieldset class="z-depth-5">
+                                    <legend>What's that ingredient?!</legend>
+                                    Wikipedia Search:
+                                    <input type="text" id="wikiSearch">
+                                    <br>
+                                    <button id="wikiSubmit" class="btn waves-effect waves-light progress" type="submit" name="action">Search</button>
+                                    <section id="wikiDisplay"></section>
+                                </fieldset>
+                            </div>
+                        <button id="submit" class="btn waves-effect waves-light progress" type="submit" name="action">Search
+                            <i class="material-icons right">search</i>
+                        </button>
+
+                        <button id="clearRecipe" class="btn waves-effect waves-light" type="submit" name="action">
+                            <i class="material-icons right">delete_sweep</i>
+                        </button>
                     </section>
-                    <button id="submit" type="submit">Search</button>
-                    <button id="clearRecipe" type="submit">Clear Recipes</button>
                 </form>
 
                 <!-- Search History from Firebase -->
                 <section id="history">
-                    <p>Total Searches: <span id="searchNum"></span></p>
-                    <p>Most Popular Search: <span id="topIng"></span></p>
+                    <p>Total Searches:
+                        <span id="searchNum"></span>
+                    </p>
+                    <p>Most Popular Search:
+                        <span id="topIng"></span>
+                    </p>
                     <h3>Latest Searches:</h3>
-                    <table class="searchTab"> 
+                    <table class="searchTab">
                         <thead>
                             <tr>
                                 <th>Diet</th>
@@ -130,7 +175,8 @@
                         <tbody>
                         </tbody>
                     </table>
-                
+
+                <!--
                 </section>
 
                 <div id="wiki">
@@ -145,25 +191,53 @@
             </div>
             </div>
         </div>    
+        -->
 
-        <div class="row">
-            <div class="col-lg-12">                
-                <!-- Recipe Results -->
-                <section id="recipeDisplay">
-                    
                 </section>
+
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+                <div class="col s6 m12 offset-s3">
+                    <div class="col s10 offset-s1">
+                        <span class="flow-text">
+                            <section id="recipeDisplay"></section>
+                        </span>
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+
+                </div>
+    </main>
+    <!-- End Of Main Container -->
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Me Hungary</h5>
+                    <p class="grey-text text-lighten-4"></p>
+                    <ul>
+                        <li>Robert</li>
+                        <li>Max</li>
+                        <li>Sergio</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        
-    </main>
-    
-    
-    <footer>
-        
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 All rights reserved until tomorrow
+            </div>
     </footer>
 
 
     <!-- Javascript -->
     <script src="assets/javascript/logic.js"></script>
+    <!-- <script src="assets/javascript/Original_Logic.js"></script> -->
 </body>
+
 </html>
