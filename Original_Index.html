@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Khand" rel="stylesheet">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+    <title>Project01-Recipe</title>
+</head>
+
+<body>
+    <header class="page-top">
+        <div class="menubar">
+            <a href="index.html" id="home"></a>
+
+            <nav class="navbar">
+                <!-- this is the navigation bar -->
+                <a href="#">About</a>
+                <a href="#">Sources</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Search Input -->
+                <form id="search-form">
+                    <section>
+                        <h2>Find a Recipe</h2>
+                        <fieldset id="diet">
+                            <legend>Diet</legend>
+                            <ul>
+                                <li>
+                                    <label for="diet_0">
+                                        <input type="radio" id="balanced" name="diet" value="balanced" checked> Balanced
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="diet_2">
+                                        <input type="radio" id="high-protein" name="diet" value="high-protein"> High-Protein
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="diet_3">
+                                        <input type="radio" id="low-carb" name="diet" value="low-carb"> Low-Carb
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="diet_4">
+                                        <input type="radio" id="low-fat" name="diet" value="low-fat"> Low-Fat
+                                    </label>
+                                </li>
+                            </ul>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Recipes Containing:</legend>
+                            Ingredient:
+                            <input type="text" id="ingredient1" name="ingredient">
+                            <br> Ingredient:
+                            <input type="text" id="ingredient2" name="ingredient">
+                            <br> Ingredient:
+                            <input type="text" id="ingredient3" name="ingredient">
+                        </fieldset>
+
+                        <fieldset id="allergy">
+                            <legend>Health Options</legend>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <label for="sugar-conscious">Sugar-Conscious</label>
+                                        <input type="radio" id="sugar-conscious" name="health" value="sugar-conscious" checked>
+                                    </li>
+                                    <li>
+                                        <label for="peanut">Peanut-Free</label>
+                                        <input type="radio" id="peanut" name="health" value="peanut-free">
+                                    </li>
+                                    <li>
+                                        <label for="tree-nut">Tree-Nut-Free</label>
+                                        <input type="radio" id="tree-nut" name="health" value="tree-nut-free">
+                                    </li>
+                                    <li>
+                                        <label for="vegetarian">Vegetarian</label>
+                                        <input type="radio" id="vegetarian" name="health" value="vegetarian">
+                                    </li>
+                                    <li>
+                                        <label for="vegan">Vegan</label>
+                                        <input type="radio" id="vegan" name="health" value="vegan">
+                                    </li>
+                                    <li>
+                                        <label for="alcohol">Alcohol-Free</label>
+                                        <input type="radio" id="alcohol" name="health" value="alcohol-free">
+                                    </li>
+                                </ul>
+                            </div>
+                        </fieldset>
+                    </section>
+                    <button id="submit" type="submit">Search</button>
+                </form>
+
+                <!-- Search History from Firebase -->
+                <section id="history">
+                    <p>Total Searches:
+                        <span id="searchNum"></span>
+                    </p>
+                    <p>Most Popular Search:
+                        <span id="topIng"></span>
+                    </p>
+                    <h3>Latest Searches:</h3>
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                        <li>Fourth</li>
+                        <li>Fifth</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Recipe Results -->
+                <section id="recipeDisplay">
+
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+
+    <footer>
+
+    </footer>
+
+
+    <!-- Javascript -->
+    <!-- <script src="assets/javascript/logic.js"></script> -->
+    <script src="assets/javascript/Original_Logic.js"></script>
+</body>
+
+</html>

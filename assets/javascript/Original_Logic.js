@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $('select').material_select();
+  });
 // Firebase config and initialization
 var config = {
     apiKey: "AIzaSyD1KKJPWXtJjBrQsi6oR6rgLVNw5ckKnOE",
@@ -20,7 +23,7 @@ function displayRecipe(){
     console.log("ingredients: " + ingredients);
     var search = "q=" + ingredients;
    
-    var dietType = document.querySelector('option[name="diet"]:checked').value;
+    var dietType = document.querySelector('input[name="diet"]:checked').value;
     console.log("Diet: " + dietType);
     diet = "&diet=" + dietType;
     
@@ -98,4 +101,3 @@ firebase.database().ref().limitToLast(5).on('child_added', function(snap) {
     }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
 });
-
