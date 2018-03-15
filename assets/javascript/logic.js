@@ -1,3 +1,30 @@
+// Firebase config and initialization
+var config = {
+    apiKey: "AIzaSyD1KKJPWXtJjBrQsi6oR6rgLVNw5ckKnOE",
+    authDomain: "recipeapi-c3e05.firebaseapp.com",
+    databaseURL: "https://recipeapi-c3e05.firebaseio.com",
+    projectId: "recipeapi-c3e05",
+    storageBucket: "recipeapi-c3e05.appspot.com",
+    messagingSenderId: "585051342056"
+    };
+firebase.initializeApp(config);
+
+var searchCounter = 0;
+
+// Firebase is displaying last 5 search terms and tracking number of searches
+firebase.database().ref().limitToLast(5).on('child_added', function(snap) {
+    $("#searchNum").text(snap.val().searchCount);
+    $(".searchTab").prepend("<tr><td> " +
+        snap.val().diet + " </td><td> " +
+        snap.val().ing1 + " </td><td> " +
+        snap.val().ing2 + " </td><td> " +
+        snap.val().ing3 + "</td><td> " +
+        snap.val().health + "</td></tr>");
+    }, function(errorObject) {
+    console.log("The read failed: " + errorObject.code);
+});
+
+// Start of first API (edamam)
 function displayRecipe(){
     var ingredient1 = $('#ingredient1').val().trim();
     var ingredient2 = $('#ingredient2').val().trim();
@@ -60,6 +87,21 @@ function displayWiki(){
         var wikiSearch = $('#wikiSearch').val().trim();
         console.log(wikiSearch);
 
+    function validateForm() {
+        if (wikiSearch == "") {
+            $("#alert").html("Search must be filled out");
+            return false;
+        } else {
+            $("#alert").html("");
+            return true;
+        }
+     }
+
+	if(!validateForm()) {
+          return;
+        }
+
+
         var wikiqueryURL = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + wikiSearch + "&limit=1&namespace=0&format=json";
         console.log(wikiqueryURL);
     
@@ -76,7 +118,7 @@ function displayWiki(){
         var wikiName = $("<h3 class='wikiName'>").text(results[1]);
         var wikiDescription = $("<p class='wikiDescription'>").text(results[2]);
         var wikiURL = $("<a class='wikiURL'>").text(results[3]).attr('href', results[3]).attr("target", "_blank");
-        $("#wikiDisplay").append(wikiName, wikiDescription, wikiURL);
+        $("#wikiDisplay").prepend(wikiName, wikiDescription, wikiURL);
 
       });
 
@@ -85,13 +127,11 @@ function displayWiki(){
     $('#wikiSubmit').on('click', function(event) {
         event.preventDefault();
         displayWiki();
+        $('#wikiSearch').val('');
     });
-
 
     $("#wikiClear").on('click', function(event) {
         event.preventDefault();
         $("#wikiDisplay").empty();
     });
-
-
 

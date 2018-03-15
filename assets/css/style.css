@@ -97,3 +97,9 @@ main {
     background-color: rgb(134, 109, 85);
     border: 1px solid #ddd; 
 }
+
+#alert {
+    font-weight: bold;
+    color: red;
+    border-color: 1px solid white;
+}
