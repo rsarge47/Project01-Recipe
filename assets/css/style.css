@@ -1,15 +1,23 @@
-.menubar {
-    width: 100%;    
-    max-width: 960px;
-    margin: 0 auto;
-    clear: both;
+body {
+    background-image: url("../../assets/images/fandb.jpg");
+    font-family: 'Khand', sans-serif;
+    background-attachment: fixed;
 }
+
 .page-top {
     width: 100%;
     margin: 0;
 }
+
+.menubar {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    clear: both;
+}
+
 #home {
-    float:left;
+    float: left;
     width: 320px;
     height: 130px;
     font-size: 1em;
@@ -19,17 +27,11 @@
     text-decoration: none;
     background-image: url("../../assets/images/newcook.png");
 }
+
 .navbar {
     font-family: 'Audiowide', cursive;
     float: right;
     margin-top: 25px;
-}
-nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i{
-    width: 60%;
-    background: none;
-}
-.row{
-    margin: 0;
 }
 
 .navbar a {
@@ -37,73 +39,110 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i{
     padding-left: 15px;
     margin-left: 15px;
     color: turquoise;
-    font-size: 2em;
+    font-size: 1em;
     border-left: 3px solid #850D03;
 }
+
 .navbar a:first-child {
     border-left: none;
 }
 
-body {
-    background-image: url("../../assets/images/fandb.jpg");
-    font-family: 'Khand', sans-serif;
+#search-form {
+    background-color: #BB9562;
+    /* float: left; */
+    width: 100%;
+    /* max-width: 320px; */
+    padding: 20px;
+    border: 1px solid #850D03;
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 #diet {
     padding-left: 20px;
     padding-right: 30px;
     width: 150px;
+    box-sizing: ;
+    border: 2px solid turquoise;
+    border-radius: 20px;
+    float: left;
+}
+
+#allergy {
+    text-align: center;
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
     box-sizing: border-box;
     border: 2px solid turquoise;
     border-radius: 20px;
 }
-[type="radio"]:checked {
-    position:relative;
-    opacity: 10;
-    pointer-events: none;
-}
-fieldset{
+#recipeSet{
     display: inline;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* margin-bottom: 10px; */
+    float: left;
+    box-sizing: border-box;
+    border: 2px solid turquoise;
+    border-radius: 20px;
+    padding-top: 10px;
+
 }
-label {
-    font-size: 15px;
-    color: #850D03;
+#wikiSet{
+    display: inline;
+    margin-left: 10px;    
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 2px solid turquoise;
+    border-radius: 20px;
 }
-.tone{
+.tone {
     color: black;
 }
+
+#history {
+    /* float: right; */
+    width: 100%;
+    /* max-width: 600px; */
+    padding: 30px;
+    margin: 0 ;
+    background-color: #6C5A30;
+    border: 1px solid #850D03;
+    border-radius: 20px;
+}
+
+#recipeDisplay {
+    /* margin-top: 30px; */
+    padding-top: 30px;
+    padding-left: 30px;
+    width: 100%;
+    max-width: 955px;
+    /* clear: both; */
+    background-color: #BB9562;
+    border-radius: 20px;
+    border: 1px solid #850D03;
+}
+
+.tone:hover {
+    background: teal;
+}
+
 .page-footer {
     padding-top: 20px;
     color: #fff;
     background-color: #850D03;
     margin-top: 10px;
 }
+.recipe{
 
-#search-form {
-    background-color: #BB9562;
-    float: left;
-    width: 100%;
-    max-width: 320px;
-    padding: 20px;
-    border: 1px solid #850D03;
-    border-radius: 20px;
 }
 
-#allergy {
-    text-align: center;
-}
-#history {
-    float: right;
-    width: 100%;
-    max-width: 600px;
-    padding: 30px;
-    margin: 0 0 40px;
-    background-color: #BB9562;
-    border: 1px solid #850D03;
-    border-radius: 20px;
+.row {
+    margin: 0;
 }
 
 
@@ -123,36 +162,51 @@ main {
     margin: 0 auto;
     clear: both;
 }
+img{
+    width: 150px;
+    margin-bottom: 10px;
 
-#recipeDisplay {
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-left: 30px;
-    width: 100%;
-    max-width: 960px;
-    clear: both;
-    background-color: #BB9562;
-    border-radius: 20px;
-    border: 1px solid #850D03;
+
 }
 
-.tone:hover {
-    background: teal;
+nav,
+nav .nav-wrapper i,
+nav a.button-collapse,
+nav a.button-collapse i {
+    width: 60%;
+    background: none;
 }
 
-#recipeImage {
-    width: 10%;
+/* fieldset {
+    display: inline;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+    box-sizing: border-box;
+    border: 2px solid turquoise;
+    border-radius: 20px; */
+
+
+label {
+    font-size: 15px;
+    color: #D72016;
 }
 
 h1,
 h2,
-h3 {
-    color: turquoise;
+h3,
+h6 {
+    color: turquoise; margin: 0;
 }
-input{
+
+input {
     margin-bottom: 5px;
 }
-@media only screen and ( max-width: 980px) {
+
+/* Media Query */
+
+/* @media only screen and ( max-width: 980px) {
     #recipeDisplay {
         background-color: #BB9562;
         float: left;
@@ -172,7 +226,6 @@ input{
         float: left;
         border: 2px solid #850D03;
         border-radius: 20px;
-        
     }
     #search-form {
         background-color: #BB9562;
@@ -183,4 +236,4 @@ input{
         border: 2px solid #850D03;
         border-radius: 20px;
     }
-}
+} */
