@@ -1,15 +1,23 @@
-.menubar {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    clear: both;
+body {
+    background-image: url("../../assets/images/fandb.jpg");
+    font-family: 'Khand', sans-serif;
+    background-attachment: fixed;
 }
+
 .page-top {
     width: 100%;
     margin: 0;
 }
+
+.menubar {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    clear: both;
+}
+
 #home {
-    float:left;
+    float: left;
     width: 320px;
     height: 130px;
     font-size: 1em;
@@ -19,54 +27,125 @@
     text-decoration: none;
     background-image: url("../../assets/images/newcook.png");
 }
+
 .navbar {
     font-family: 'Audiowide', cursive;
     float: right;
     margin-top: 25px;
 }
+
 .navbar a {
     display: inline-block;
     padding-left: 15px;
-    margin-left: 15px;    
-    color: rgb(150, 33, 33);
-    font-size: 2em;
-    border-left: 3px solid rgb(150, 33, 33);
+    margin-left: 15px;
+    color: turquoise;
+    font-size: 1em;
+    border-left: 3px solid #850D03;
 }
+
 .navbar a:first-child {
     border-left: none;
 }
-body {
-    background-image: url("../../assets/images/fandb.jpg");
-    font-family: 'Khand', sans-serif;
+
+#search-form {
+    background-color: #BB9562;
+    /* float: left; */
+    width: 100%;
+    /* max-width: 320px; */
+    padding: 20px;
+    border: 1px solid #850D03;
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
+
 #diet {
     padding-left: 20px;
     padding-right: 30px;
     width: 150px;
-    box-sizing: border-box;    
-    border: 1px solid #999;
-}
-#search-form {
-    background-color: rgb(134, 109, 85);
+    box-sizing: ;
+    border: 2px solid turquoise;
+    border-radius: 20px;
     float: left;
-    width: 100%;
-    max-width: 350px;    
-    padding: 20px;
-    border: 1px solid black;
-    max-width: 270px;   
 }
+
 #allergy {
-    text-align: right;
+    text-align: center;
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+    box-sizing: border-box;
+    border: 2px solid turquoise;
+    border-radius: 20px;
 }
+#recipeSet{
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* margin-bottom: 10px; */
+    float: left;
+    box-sizing: border-box;
+    border: 2px solid turquoise;
+    border-radius: 20px;
+    padding-top: 10px;
+
+}
+#wikiSet{
+    display: inline;
+    margin-left: 10px;    
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 2px solid turquoise;
+    border-radius: 20px;
+}
+.tone {
+    color: black;
+}
+
 #history {
-    float: right;
+    /* float: right; */
     width: 100%;
-    max-width: 635px;
+    /* max-width: 600px; */
     padding: 30px;
-    margin: 0 0 40px;
-    background-color: rgb(134, 109, 85);
-    border: 1px solid #ddd;
+    margin: 0 ;
+    background-color: #6C5A30;
+    border: 1px solid #850D03;
+    border-radius: 20px;
 }
+
+#recipeDisplay {
+    /* margin-top: 30px; */
+    padding-top: 30px;
+    padding-left: 30px;
+    width: 100%;
+    max-width: 955px;
+    /* clear: both; */
+    background-color: #BB9562;
+    border-radius: 20px;
+    border: 1px solid #850D03;
+}
+
+.tone:hover {
+    background: teal;
+}
+
+.page-footer {
+    padding-top: 20px;
+    color: #fff;
+    background-color: #850D03;
+    margin-top: 10px;
+}
+.recipe{
+
+}
+
+.row {
+    margin: 0;
+}
+
+
 .searchTab th {
     text-decoration: underline;
     font-weight: bold; 
@@ -83,16 +162,78 @@ main {
     margin: 0 auto;
     clear: both;
 }
-.recipeDisplay {
-    margin-top: 30px;
-    padding-top: 30px;
-    width: 100%;
-    max-width: 960px;
-    clear: both;
-    background-color: rgb(134, 109, 85);
+img{
+    width: 150px;
+    margin-bottom: 10px;
+
+
 }
-.recipe {
-    margin-top: 30px;
-    background-color: white;
-    border: 1px solid black;
+
+nav,
+nav .nav-wrapper i,
+nav a.button-collapse,
+nav a.button-collapse i {
+    width: 60%;
+    background: none;
 }
+
+/* fieldset {
+    display: inline;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+    box-sizing: border-box;
+    border: 2px solid turquoise;
+    border-radius: 20px; */
+
+
+label {
+    font-size: 15px;
+    color: #D72016;
+}
+
+h1,
+h2,
+h3,
+h6 {
+    color: turquoise; margin: 0;
+}
+
+input {
+    margin-bottom: 5px;
+}
+
+/* Media Query */
+
+/* @media only screen and ( max-width: 980px) {
+    #recipeDisplay {
+        background-color: #BB9562;
+        float: left;
+        width: 100%;
+        max-width: 650px;
+        padding: 20px;
+        border: 2px solid #850D03;
+        border-radius: 20px;
+    }
+    #history {
+        margin-top: 30px;
+        padding-top: 30px;
+        width: 100%;
+        max-width: 650px;
+        clear: both;
+        background-color: #BB9562;
+        float: left;
+        border: 2px solid #850D03;
+        border-radius: 20px;
+    }
+    #search-form {
+        background-color: #BB9562;
+        float: left;
+        width: 100%;
+        max-width: 955px;
+        padding: 20px;
+        border: 2px solid #850D03;
+        border-radius: 20px;
+    }
+} */
