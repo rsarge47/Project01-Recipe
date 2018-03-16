@@ -67,13 +67,15 @@ $(document).ready(function () {
             dataType: "jsonp"
             }).then(function(response) {        
             var results = response.hits;
-            var recipeDiv = $("<div class='displayRecipe'>");
+            
 
             // Checking for False Boolean on JSON search results
-            if (!response.more) {
+            if (response.count === 0) {
                 var noResponse = $("<h3 class='noResponse'>").text("Sorry, no recipes for " + ingredient1 + ", " + ingredient2 + ", " + ingredient3);
                 $("#recipeDisplay").prepend(noResponse);
                 console.log(noResponse);
+            } else if (response.count > 0) {
+                var recipeDiv = $("<div class='displayRecipe'>");
             }
 
             // Creating Recipe Display from JSON search results
